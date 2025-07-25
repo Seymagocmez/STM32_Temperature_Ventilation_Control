@@ -37,7 +37,7 @@ This STM32-based system provides precise temperature-controlled ventilation, fea
 
 This project was developed through the valuable collaboration of:
 
-[![Merve Elanur Azman](https://img.shields.io/badge/Merve%20Elanur%20Azman-Collaborator-blue?style=for-the-badge&logo=github)](MerveElanurAzman)
+[![Merve Elanur Azman](https://img.shields.io/badge/Merve%20Elanur%20Azman-Collaborator-blue?style=for-the-badge&logo=github)](https://github.com/MerveElanurAzman)
 [![Gül Nur Deviren](https://img.shields.io/badge/G%C3%BCl%20Nur%20Deviren-Collaborator-green?style=for-the-badge&logo=github)](https://github.com/gulnurdeviren)
 [![Şeyma Göçmez](https://img.shields.io/badge/%C5%9Eeyma%20G%C3%B6%C3%A7mez-Collaborator-purple?style=for-the-badge&logo=github)](https://github.com/Seymagocmez)
 
