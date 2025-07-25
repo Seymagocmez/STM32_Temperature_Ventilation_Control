@@ -260,3 +260,5 @@ For a more detailed explanation of the system design, implementation details, an
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
 See the [LICENSE](./LICENSE) file for details.
+
+[Figure 2 Image Source](https://www.ylighting.com/)
