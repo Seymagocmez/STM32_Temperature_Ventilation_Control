@@ -1,6 +1,46 @@
-# Temperature-Controlled Ventilation System for Indoor Environments 
+# Temperature-Controlled Ventilation System for Indoor Environments
 
-This STM32-based system provides precise temperature-controlled ventilation, featuring automatic and manual fan control, real-time monitoring, and comprehensive alert mechanisms. The project was developed collaboratively by [Merve Elanur Azman](LINK), [Gül Nur Deviren](https://github.com/gulnurdeviren), and [Şeyma Göçmez](https://github.com/Seymagocmez)
+This STM32-based system provides precise temperature-controlled ventilation, featuring automatic and manual fan control, real-time monitoring, and comprehensive alert mechanisms.
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Project Status: Completed](https://img.shields.io/badge/Status-Completed-brightgreen.svg)
+
+## Table of Contents
+
+* [ Collaborators](#-collaborators)
+* [Project Overview](#-project-overview)
+* [Features](#-features)
+    * [Temperature Measurement](#temperature-measurement)
+    * [Fan Control](#fan-control)
+    * [Motor Control](#motor-control)
+    * [Alerts](#alerts)
+    * [Communication](#communication)
+    * [Interrupt Handling](#interrupt-handling)
+    * [Custom LCD Library](#custom-lcd-library)
+* [Hardware Components](#-hardware-components)
+* [System Logic](#-system-logic)
+    * [Digital Control Flow](#digital-control-flow)
+    * [Fan Direction](#fan-direction)
+* [Implementation](#-implementation)
+    * [Tools & Environment](#tools--environment)
+    * [STM32CubeMX Pinout](#stm32cubemx-pinout)
+    * [Supplementary Configuration Tables](#supplementary-configuration-tables)
+    * [Proteus Simulation Setup](#proteus-simulation-setup)
+* [How to Run](-how-to-run)
+    * [Run in Proteus (Simulation)](#run-in-proteus-simulation)
+* [Documentation](#documentation)
+* [License](#-license)
+
+
+## 🤝 Collaborators
+
+This project was developed through the valuable collaboration of:
+
+[![Merve Elanur Azman](https://img.shields.io/badge/Merve%20Elanur%20Azman-Collaborator-blue?style=for-the-badge&logo=github)](LINK_BURAYA_GELECEK)
+[![Gül Nur Deviren](https://img.shields.io/badge/G%C3%BCl%20Nur%20Deviren-Collaborator-green?style=for-the-badge&logo=github)](https://github.com/gulnurdeviren)
+[![Şeyma Göçmez](https://img.shields.io/badge/%C5%9Eeyma%20G%C3%B6%C3%A7mez-Collaborator-purple?style=for-the-badge&logo=github)](https://github.com/Seymagocmez)
+
 
 ## Project Overview
 
@@ -10,9 +50,7 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 * **Manual Mode:** The user controls fan direction (forward/reverse) and speed using push buttons.
 
 **Visual (LEDs)** and **audible (buzzer)** alerts notify users when the temperature is outside the safe range.
-
 ## Features
-
 ### Temperature Measurement
 
 * **LM35 analog sensor**
@@ -23,14 +61,14 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 
 * **Auto Mode:**
 
-  * Above 20°C → Counter-clockwise (cooling mode)
-  * Below 10°C → Clockwise (heating mode)
-  * Between 10–20°C → Fan stops
+    * Above 20°C → Counter-clockwise (cooling mode)
+    * Below 10°C → Clockwise (heating mode)
+    * Between 10–20°C → Fan stops
 
 * **Manual Mode:**
 
-  * 5 push buttons control fan direction (FWD, REV, STOP)
-  * PWM speed control (`+10%` / `-10%` per button press)
+    * 5 push buttons control fan direction (FWD, REV, STOP)
+    * PWM speed control (`+10%` / `-10%` per button press)
 
 ### Motor Control
 
@@ -54,20 +92,24 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 
 * `lcd1602.h` driver written from scratch using STM32 HAL GPIO functions
 
+---
+
 ## Hardware Components
 
-| Component         | Description                                |
-| ----------------- | ------------------------------------------ |
-| **MCU**           | STM32F103R6 (Blue Pill)                    |
-| **Sensor**        | LM35 Analog Temperature Sensor             |
-| **Motor Driver**  | L298N Dual H-Bridge                        |
-| **Display**       | LCD1602 (16x2 Character Display)           |
-| **Fan**           | DC Motor with adjustable direction/speed   |
-| **Push Buttons**  | 5 (FWD, REV, STOP, PWM+, PWM-)             |
-| **LEDs + Buzzer** | Red & Green LEDs + Buzzer for alerts       |
-| **UART**          | Virtual terminal output for PWM monitoring |
+| Component           | Description                                  |
+| :------------------ | :------------------------------------------- |
+| **MCU** | STM32F103R6                              |
+| **Sensor** | LM35 Analog Temperature Sensor               |
+| **Motor Driver** | L298N Dual H-Bridge                          |
+| **Display** | LCD1602 (16x2 Character Display)             |
+| **Fan** | DC Motor with adjustable direction/speed     |
+| **Push Buttons** | 5 (FWD, REV, STOP, PWM+, PWM-)               |
+| **LEDs + Buzzer** | Red & Green LEDs + Buzzer for alerts         |
+| **UART** | Virtual terminal output for PWM monitoring   |
 
-## System Logic 
+---
+
+##  System Logic
 
 ### Digital Control Flow
 
@@ -86,16 +128,16 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 * **Initialize hardware**
 * **Loop:**
 
-  * Read LM35 sensor
-  * Update LCD if temp changes ≥0.5°C
-  * Check mode:
+    * Read LM35 sensor
+    * Update LCD if temp changes ≥0.5°C
+    * Check mode:
 
-    * **Manual Mode:** Set direction & speed via buttons
-    * **Auto Mode:**
+        * **Manual Mode:** Set direction & speed via buttons
+        * **Auto Mode:**
 
-      * > 20°C → Fan CCW + Alerts
-      * <10°C → Fan CW + Alerts
-      * 10–20°C → Fan stops, green LED on
+            * > 20°C → Fan CCW + Alerts
+            * <10°C → Fan CW + Alerts
+            * 10–20°C → Fan stops, green LED on
 
 ### Fan Direction
 
@@ -110,11 +152,13 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 </div>
 
 | Mode        | Direction         | Purpose              | GPIO              |
-| ----------- | ----------------- | -------------------- | ----------------- |
+| :---------- | :---------------- | :------------------- | :---------------- |
 | Summer Mode | Counter-clockwise | Cooling airflow      | PC8=HIGH, PC9=LOW |
 | Winter Mode | Clockwise         | Warm air circulation | PC8=LOW, PC9=HIGH |
 
-## Implementation
+---
+
+##  Implementation
 
 ### Tools & Environment
 
@@ -151,7 +195,7 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 #### Connections:
 
 | Function    | STM32 Pin       |
-| ----------- | --------------- |
+| :---------- | :-------------- |
 | LM35 Sensor | PA1 (ADC)       |
 | LCD Control | PA2–PA4         |
 | LCD Data    | PC0–PC6, PC10   |
@@ -180,15 +224,17 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
   </tr>
 </table>
 
-## How to Run 
+---
+
+## How to Run
 
 ### Run in Proteus (Simulation)
 
 #### Prerequisites
 
-* **Proteus 8.17+**
-* **Keil MDK-ARM 5+**
-* **STM32CubeIDE (Optional)**
+- **Proteus 8.17+**
+- **Keil MDK-ARM 5+**
+- **STM32CubeIDE (Optional)**
 
 #### Steps
 
@@ -196,5 +242,11 @@ The system controls indoor temperature using an **LM35 sensor** and displays rea
 git clone https://github.com/Seymagocmez/STM32_Temperature_Ventilation_Control.git
 cd STM32_Temperature_Ventilation_Control
 ```
-## Documentation
-For more detailed documentation, please refer to  .
+
+1. Open the `ventilition_system.pdsprj` file in Proteus.
+2. Open the Keil project (`ventilition_system.uvprojx`) in Keil MDK-ARM.
+3. Build the project in Keil to generate the `.hex` file.
+4. Load the generated `.hex` file into the STM32 MCU component in the Proteus schematic.
+5. Start the simulation in Proteus to observe the system behavior.
+
+For a more detailed documentation, please refer to the [project wiki]()
