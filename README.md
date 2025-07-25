@@ -250,3 +250,13 @@ cd STM32_Temperature_Ventilation_Control
 5. Start the simulation in Proteus to observe the system behavior.
 
 For a more detailed documentation, please refer to the [project docs](https://github.com/Seymagocmez/STM32_Temperature_Ventilation_Control/blob/main/STM32F103R6_VENTILATION_CONTROL_DOCUMENTATION.pdf).
+
+## Documentation
+
+For a more detailed explanation of the system design, implementation details, and usage instructions, please refer to the [project documentation (PDF)](https://github.com/Seymagocmez/STM32_Temperature_Ventilation_Control/blob/main/STM32F103R6_VENTILATION_CONTROL_DOCUMENTATION.pdf).
+
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
+See the [LICENSE](./LICENSE) file for details.
