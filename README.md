@@ -1,6 +1,6 @@
 # Temperature-Controlled Ventilation System for Indoor Environments 
 
-This STM32-based system provides precise temperature-controlled ventilation, featuring automatic and manual fan control, real-time monitoring, and comprehensive alert mechanisms. The project was developed collaboratively, emphasizing robust embedded system design, hardware-software integration, and hands-on problem-solving.
+This STM32-based system provides precise temperature-controlled ventilation, featuring automatic and manual fan control, real-time monitoring, and comprehensive alert mechanisms. The project was developed collaboratively by [Seyma Gocmez](https://github.com/Seymagocmez), [Gül Nur Deviren](https://github.com/gulnurdeviren), [Merve Elanur Azman]().
 
 ## Project Overview
 
