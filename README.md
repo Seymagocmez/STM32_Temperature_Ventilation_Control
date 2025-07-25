@@ -249,4 +249,4 @@ cd STM32_Temperature_Ventilation_Control
 4. Load the generated `.hex` file into the STM32 MCU component in the Proteus schematic.
 5. Start the simulation in Proteus to observe the system behavior.
 
-For a more detailed documentation, please refer to the [project wiki]()
+For a more detailed documentation, please refer to the [project docs](https://github.com/Seymagocmez/STM32_Temperature_Ventilation_Control/blob/main/STM32F103R6_VENTILATION_CONTROL_DOCUMENTATION.pdf).
